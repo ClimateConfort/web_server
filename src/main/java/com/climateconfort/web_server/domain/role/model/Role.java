@@ -28,8 +28,7 @@ public class Role {
 
 	public enum RoleType {
 		Administrator,
-		Student,
-		Teacher,
+		User
 	}
 
 	@SuppressWarnings("unused")

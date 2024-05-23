@@ -37,6 +37,12 @@ public class Gela {
 	@Column(nullable = false)
 	private String izena;
 
+	@Column(nullable = true)
+	private double paramMin;
+
+	@Column(nullable = true)
+	private double paramMax;
+
     @ManyToOne
     private Eraikina eraikina;
 

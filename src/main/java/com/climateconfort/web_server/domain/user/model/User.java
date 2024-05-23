@@ -23,19 +23,13 @@ import lombok.Setter;
 @Entity(name = "User")
 @Table(name = "user")
 public class User {
-
+	
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userID;
- 
-	@Column(nullable = false)
-	private String izena;
-
-	@Column(nullable = false)
-	private String abizena;
 
 	@Column(nullable = false, unique = true)
 	private String email;
@@ -43,10 +37,7 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 
-	@Column(nullable = true)
-	private Date jaiotzeData;	
-
-	@ManyToOne()
+	@ManyToOne
 	private Role role;
 
 }

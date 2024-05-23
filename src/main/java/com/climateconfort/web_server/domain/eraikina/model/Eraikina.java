@@ -37,8 +37,7 @@ public class Eraikina {
 	@Column(nullable = false)
 	private String izena;
 
-
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String lokalizazioa;
 
     @ManyToOne

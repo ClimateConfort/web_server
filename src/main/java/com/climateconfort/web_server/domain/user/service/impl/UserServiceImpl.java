@@ -17,8 +17,8 @@ import com.climateconfort.web_server.domain.user.repository.UserRepository;
 import com.climateconfort.web_server.domain.user.service.UserService;
 
 @Service
-public class UserServiceImpl implements UserService {
-
+public class UserServiceImpl implements UserService 
+{
 	@Autowired
 	private UserRepository userRepository;
 
@@ -31,8 +31,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void saveUser(UserDto userDto) {
 		User user = new User();
-		user.setIzena(userDto.getName());
-		user.setAbizena(userDto.getSurname());
+		// user.setIzena(userDto.getName());
+		// user.setAbizena(userDto.getSurname());
 		user.setEmail(userDto.getEmail());
 		user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 		user.setRole(roleRepository.findByType(userDto.getRoleType()).orElseGet(() -> {
@@ -49,8 +49,8 @@ public class UserServiceImpl implements UserService {
 				.findByEmail(email)
 				.map(user -> {
 					UserDto userDto = new UserDto();
-					userDto.setName(user.getIzena());
-					userDto.setSurname(user.getAbizena());
+					// userDto.setName(user.getIzena());
+					// userDto.setSurname(user.getAbizena());
 					userDto.setEmail(user.getEmail());
 					userDto.setPassword(user.getPassword());
 					userDto.setRoleType(user.getRole().getType());
@@ -66,8 +66,8 @@ public class UserServiceImpl implements UserService {
 				.stream(users.spliterator(), false)
 				.map(user -> {
 					UserDto userDto = new UserDto();
-					userDto.setName(user.getIzena());
-					userDto.setSurname(user.getAbizena());
+					// userDto.setName(user.getIzena());
+					// userDto.setSurname(user.getAbizena());
 					userDto.setEmail(user.getEmail());
 					userDto.setRoleType(user.getRole().getType());
 					return userDto;

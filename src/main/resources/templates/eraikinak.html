@@ -38,8 +38,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="enpresa: ${enpresaList}" style="background-color: whitesmoke;">
-                <td><a aria-current="page" th:href="@{/administration/eraikinak(enpresa_id = ${enpresa.enpresaID})}" th:text="${enpresa.izena}"></a></td>
+            <tr th:each="eraikina: ${eraikinaList}" style="background-color: whitesmoke;">
+                <td><a aria-current="page" th:href="@{/eraikinak}" th:text="${eraikina.izena} - ${eraikina.lokalizazioa}"></a></td>
             </tr>
         </tbody>
     </table>
