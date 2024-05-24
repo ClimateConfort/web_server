@@ -9,14 +9,24 @@
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="/css/login.css">
+
+    <style>
+        body {
+            background-image: url('/images/login_back.png');
+            background-size: cover; /* Ajusta la imagen para cubrir toda el área */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Centra la imagen */
+        }
+    </style>
+
 </head>
 
-<body style="background-color: rgb(205, 134, 3)">
+<body>
 	<!-- <body background="images/login_back.png" style="background-color: rgb(205, 134, 3)"></body>-->
 	<div class="vh-100 w-100 d-flex align-items-center">
 		<div class="formContainer col-md-4 col-sm-12 shadow-lg p-5 bg-dark rounded">
 			<div class="text-center mb-4 pb-3">
-				<img th:src="@{/images/osb_logo.png}" alt="Company Logo" height="150" width="170">
+				<!-- <img th:src="@{/images/osb_logo.png}" alt="Company Logo" height="150" width="170"> -->
 			</div>
 			<div th:if="${param.error}">
 				<div class="alert alert-danger">Invalid Email and Password.</div>

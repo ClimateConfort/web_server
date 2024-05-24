@@ -1,7 +1,5 @@
 package com.climateconfort.web_server.domain.user.model;
 
-import java.util.Date;
-
 import com.climateconfort.web_server.domain.role.model.Role;
 
 import jakarta.persistence.Column;

@@ -3,6 +3,7 @@ package com.climateconfort.web_server.domain.enpresa.model;
 import java.util.List;
 
 import com.climateconfort.web_server.domain.eraikina.model.Eraikina;
+import com.climateconfort.web_server.domain.user.model.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,5 +39,8 @@ public class Enpresa {
 
 	@OneToMany(mappedBy = "enpresa", fetch = FetchType.EAGER)
 	private List<Eraikina> eraikinak;
+
+	@OneToOne
+	private User user;
 
 }

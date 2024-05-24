@@ -31,7 +31,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class SpringSecurity {
 
 	private String[] resources = {"/css/**", "/js/**", "/images/**"};
-	private String[] authenticated = {"/ikasgaiak/**", "/gaiak/**", "/apunteak/**", "/ourws/**", "/ws/**"}; 
+	private String[] authenticated = {"/userMenu	/**", "/ikasgaiak/**", "/gaiak/**", "/apunteak/**", "/ourws/**", "/ws/**"}; 
 	private String[] admin = {"/administration/**", "/register/**"}; 
 
 	@Autowired
@@ -59,7 +59,7 @@ public class SpringSecurity {
 									private SimpleUrlAuthenticationSuccessHandler adminSuccessHandler = new SimpleUrlAuthenticationSuccessHandler(
 											"/administration");
 									private SimpleUrlAuthenticationSuccessHandler elseSuccessHandler = new SimpleUrlAuthenticationSuccessHandler(
-											"/ikasgaiak");
+											"/userMenu");
 
 									@Override
 									public void onAuthenticationSuccess(HttpServletRequest request,

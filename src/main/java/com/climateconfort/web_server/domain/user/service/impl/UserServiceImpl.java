@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService
 	private RoleRepository roleRepository;
 
 	@Autowired
-	private PasswordEncoder passwordEncoder;
+	private PasswordEncoder passwordEncoder; 		
 
 	@Override
 	public void saveUser(UserDto userDto) {

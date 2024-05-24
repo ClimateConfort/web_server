@@ -30,6 +30,14 @@
 	color: #fff
 }
 
+/* styles.css */
+body {
+    background-image: url('C:/Users/diosg/Desktop/web_server/src/main/resources/static/images/login_back.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .btn-accent {
 	background: rgb(214, 40, 34);
 	/* Old browsers */

@@ -1,6 +1,7 @@
 package com.climateconfort.web_server.domain.enpresa.dto;
 
-import jakarta.validation.constraints.NotEmpty;
+import com.climateconfort.web_server.domain.user.model.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,8 @@ public class EnpresaDto {
     
 	private Long enpresaID;
 
-    @NotEmpty
     private String izena;
+
+    private User user;
 
 }

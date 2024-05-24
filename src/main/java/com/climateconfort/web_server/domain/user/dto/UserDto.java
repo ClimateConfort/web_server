@@ -18,12 +18,6 @@ public class UserDto {
 	private Long id;
 
 	@NotEmpty
-	private String name;
-
-	@NotEmpty
-	private String surname;
-
-	@NotEmpty
 	@Email
 	private String email;
 
@@ -32,5 +26,7 @@ public class UserDto {
 
 	//@NotEmpty
 	private RoleType roleType;
+
+	private String enpresa;
     
 }

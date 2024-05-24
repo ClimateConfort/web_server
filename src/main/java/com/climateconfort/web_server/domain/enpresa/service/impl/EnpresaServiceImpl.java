@@ -1,6 +1,5 @@
 package com.climateconfort.web_server.domain.enpresa.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -14,7 +13,6 @@ import com.climateconfort.web_server.domain.enpresa.model.Enpresa;
 import com.climateconfort.web_server.domain.enpresa.repository.EnpresaRespository;
 import com.climateconfort.web_server.domain.enpresa.service.EnpresaService;
 import com.climateconfort.web_server.domain.eraikina.dto.EraikinaDto;
-import com.climateconfort.web_server.domain.eraikina.model.Eraikina;
 
 @Service
 public class EnpresaServiceImpl implements EnpresaService 

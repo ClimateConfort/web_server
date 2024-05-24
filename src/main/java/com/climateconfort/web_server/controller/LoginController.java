@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.climateconfort.web_server.domain.enpresa.dto.EnpresaDto;
 import com.climateconfort.web_server.domain.enpresa.service.EnpresaService;
 import com.climateconfort.web_server.domain.eraikina.dto.EraikinaDto;
+import com.climateconfort.web_server.domain.role.model.Role.RoleType;
 import com.climateconfort.web_server.domain.user.dto.UserDto;
 import com.climateconfort.web_server.domain.user.service.UserService;
 
@@ -35,38 +36,29 @@ public class LoginController {
 	}
 
 	@GetMapping("/register")
-	public String showRegistrationForm(Model model) {
+	public String showRegistrationForm(Model model) 
+	{
 		UserDto user = new UserDto();
 		model.addAttribute("user", user);
-		return "register";
+		return "register_enpresa";
 	}
 
-	@PostMapping("/register/save_enpresa")
-	public String enpresaRegistration(@Valid @ModelAttribute("enpresa") EnpresaDto enpresa,
-			BindingResult result,
-			Model model, HttpServletRequest request)
+	@PostMapping("/register/save")
+	public String enpresaRegistration(@Valid @ModelAttribute("user") UserDto user,
+			BindingResult result, Model model, HttpServletRequest request)
 	{
-		if (enpresaService.findEnpresaDtoByName(enpresa.getIzena()).isPresent())
-		{
-			result.rejectValue("izena", null, "Jadanik existitzen da enpresa bat izen berdinarekin.");
-			model.addAttribute("enpresa", enpresa);
-			return "register";
-		}
-		enpresaService.saveEnpresa(enpresa);
-		return "redirect:" + request.getHeader("Referer") + "?zuzen";
-	}
 
-	@PostMapping("/register/save_user")
-	public String registration(@Valid @ModelAttribute("user") UserDto user,
-			BindingResult result,
-			Model model, HttpServletRequest request) {
-		if (userService.findUserDtoByEmail(user.getEmail()).isPresent()) {
-			result.rejectValue("email", null, "There is already an account registered with that email");
-			model.addAttribute("user", user);
-			return "register";
-		}
+		user.setRoleType(RoleType.User);
+		EnpresaDto enpresa = new EnpresaDto();
+		enpresa.setIzena(user.getEnpresa());
 		userService.saveUser(user);
-		return "redirect:" + request.getHeader("Referer") + "?zuzen";
+		enpresa.setUser(userService.findUserByEmail(user.getEmail()).get());
+		enpresaService.saveEnpresa(enpresa);
+
+		// TODO: Si eso añadirle strings al user para crear un edificio y una gela  :)
+ 
+		model.addAttribute("enpresaList", enpresaService.findAllEnpresas());
+		return "menuAdmin";
 	}
 
 	@GetMapping("/administration")
@@ -82,6 +74,13 @@ public class LoginController {
 		List<EraikinaDto> list = enpresaService.findEraikinakByEnpresaID(enpresaID).get();
 		model.addAttribute("eraikinaList", list);
 		return "eraikinak";
+	}
+
+
+	@GetMapping("/userMenu")
+	public String userMenu(Model model, Principal principal) 
+	{
+		return "menu_user";
 	}
 
 }
