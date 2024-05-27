@@ -1,128 +1,113 @@
 <!DOCTYPE html>
 <html lang="eu" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
     <meta charset="UTF-8">
-    <title>Registratu Erabiltzaile Berria</title>
+    <title>Erregistratu Erabiltzaile Berria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/css/register.css" rel="stylesheet"> 
 </head>
-<body style="background-color: rgb(183, 219, 156)">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/administration}">Registration System</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</nav>
-<br>
-<br>
-<br>
-<div class="container">
-    <div class="row col-md-8 offset-md-2">
-        <div class="card">
-            <div th:if="${param.zuzen}">
-                <div class="alert alert-info">Zuzen erregistratu da.</div>
-            </div>
-            <div class="card-header">
-                <h2 class="text-center">Erregistroa</h2>
-            </div>
-            
-            <!-- User -->
-            <div class="card-body">
-                <form method="post" th:action="@{/register/save}" th:object="${user}">
 
-                    <div class="form-group mb-3">
-                        <label class="form-label">Email</label>
-                        <input class="form-control"
-                               id="email"
-                               name="email"
-                               placeholder="Enter email address"
-                               th:field="*{email}"
-                               type="email"
-                        >
-                        <p th:errors="*{email}" class="text-danger"
-                           th:if="${#fields.hasErrors('email')}">
-                        </p>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label class="form-label">Pasahitza</label>
-                        <input class="form-control"
-                               id="password"
-                               name="password"
-                               placeholder="Enter password"
-                               th:field="*{password}"
-                               type="password"
-                        >
-                        <p th:errors="*{password}" class="text-danger"
-                           th:if="${#fields.hasErrors('password')}">
-                        </p>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label class="form-label">Enpresaren Izena</label>
-                        <input class="form-control"
-                               id="enpresaIzena"
-                               name="enpresaIzena"
-                               placeholder="Enpresaren izena"
-                               th:field="*{enpresaIzena}"
-                               type="enpresaIzena"
-                        >
-                        <p th:errors="*{enpresaIzena}" class="text-danger"
-                           th:if="${#fields.hasErrors('enpresaIzena')}">
-                        </p>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label class="form-label">Eraikinaren Izena</label>
-                        <input class="form-control"
-                               id="eraikinaIzena"
-                               name="eraikinaIzena"
-                               placeholder="Gelaren izena"
-                               th:field="*{eraikinaIzena}"
-                               type="eraikinaIzena"
-                        >
-                        <p th:errors="*{eraikinaIzena}" class="text-danger"
-                           th:if="${#fields.hasErrors('eraikinaIzena')}">
-                        </p>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label class="form-label">Eraikinaren Lokalizazioa</label>
-                        <input class="form-control"
-                               id="eraikinaLokalizazioa"
-                               name="eraikinaLokalizazioa"
-                               placeholder=" "
-                               th:field="*{eraikinaLokalizazioa}"
-                               type="eraikinaLokalizazioa"
-                        >
-                        <p th:errors="*{eraikinaLokalizazioa}" class="text-danger"
-                           th:if="${#fields.hasErrors('eraikinaLokalizazioa')}">
-                        </p>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label class="form-label">Gelaren Izena</label>
-                        <input class="form-control"
-                               id="gelaIzena"
-                               name="gelaIzena"
-                               placeholder="Gelaren izena"
-                               th:field="*{gelaIzena}"
-                               type="gelaIzena"
-                        >
-                        <p th:errors="*{gelaIzena}" class="text-danger"
-                           th:if="${#fields.hasErrors('gelaIzena')}">
-                        </p>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <button class="btn btn-primary" type="submit">Erregistratu</button>
-                    </div>
-                </form>
-            </div>
-
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/administration}">Climate Confort</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-    </div>
-</div>
+    </nav>
+    <br>
+    <section class="vh-100 gradient-custom d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9 col-xl-7">
+                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-3">Erregistratu</h3>
+                            <div th:if="${param.zuzen}">
+                                <div class="alert alert-info">Erregistroa zuzen gauzatu da!</div>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" th:action="@{/register/save}" th:object="${user}">
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <label class="form-label">Emaila</label>
+                                            <input class="form-control" id="email" name="email"
+                                                placeholder="Enter email address" th:field="*{email}" type="email">
+                                            <p th:errors="*{email}" class="text-danger"
+                                                th:if="${#fields.hasErrors('email')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <label class="form-label">Pasahitza</label>
+                                            <input class="form-control" id="password" name="password"
+                                                placeholder="Enter password" th:field="*{password}" type="password">
+                                            <p th:errors="*{password}" class="text-danger"
+                                                th:if="${#fields.hasErrors('password')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <label class="form-label">Enpresaren izena</label>
+                                            <input class="form-control" id="enpresaIzena" name="enpresaIzena"
+                                                placeholder="Enpresaren izena" th:field="*{enpresaIzena}"
+                                                type="enpresaIzena">
+                                            <p th:errors="*{enpresaIzena}" class="text-danger"
+                                                th:if="${#fields.hasErrors('enpresaIzena')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <label class="form-label">Eraikinaren izena</label>
+                                            <input class="form-control" id="eraikinaIzena" name="eraikinaIzena"
+                                                placeholder="Gelaren izena" th:field="*{eraikinaIzena}"
+                                                type="eraikinaIzena">
+                                            <p th:errors="*{eraikinaIzena}" class="text-danger"
+                                                th:if="${#fields.hasErrors('eraikinaIzena')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="ccol-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <label class="form-label">Eraikinaren lokalizazioa</label>
+                                            <input class="form-control" id="eraikinaLokalizazioa"
+                                                name="eraikinaLokalizazioa" placeholder="Eraikinaren lokalizazioa"
+                                                th:field="*{eraikinaLokalizazioa}" type="eraikinaLokalizazioa">
+                                            <p th:errors="*{eraikinaLokalizazioa}" class="text-danger"
+                                                th:if="${#fields.hasErrors('eraikinaLokalizazioa')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <label class="form-label">Gelaren izena</label>
+                                            <input class="form-control" id="gelaIzena" name="gelaIzena"
+                                                placeholder="Gelaren izena" th:field="*{gelaIzena}" type="gelaIzena">
+                                            <p th:errors="*{gelaIzena}" class="text-danger"
+                                                th:if="${#fields.hasErrors('gelaIzena')}">
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 pt-2">
+                                        <input data-mdb-ripple-init class="btn btn-verde btn-lg" type="submit" value="Erregistratu" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
+
 </html>
