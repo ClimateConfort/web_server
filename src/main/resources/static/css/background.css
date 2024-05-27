@@ -1,0 +1,13 @@
+
+
+.table td, .table th {
+    vertical-align: middle;
+}
+.table .btn {
+    float: right;
+}
+
+.grafana {
+    width: 1000px;
+    height: 500px;
+}
