@@ -41,13 +41,13 @@
             <tr th:each="eraikina: ${eraikinaList}" style="background-color: whitesmoke;">
                 <td>
                     <h4>
-                        <a aria-current="page" th:href="@{/administration/eraikinak/gelak(eraikina_id=${eraikina.eraikinaID})}" th:text="${eraikina.izena}"></a>
+                        <a aria-current="page" th:href="@{/userMenu/eraikinak/gelak(eraikina_id=${eraikina.eraikinaID})}" th:text="${eraikina.izena}"></a>
                     </h4>
                     <h4 th:text="${eraikina.lokalizazioa}"></h4>
                 </td>
             </tr>
         </tbody>
     </table>
-</div>
+    </div>
 </body>
 </html>

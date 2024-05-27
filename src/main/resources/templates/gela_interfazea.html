@@ -34,16 +34,26 @@
     <table class="table table-striped table-bordered table-hover" style="margin-top: 10px;">
         <thead class="table-dark">
             <tr>
-                <th>Eraikinak</th>
+                <th> 
+                    <h2 th:text="${gela.izena}"></h2> 
+                </th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="eraikina: ${eraikinaList}" style="background-color: whitesmoke;">
+            <tr style="background-color: whitesmoke;">
                 <td>
-                    <h4>
-                        <a aria-current="page" th:href="@{/administration/eraikinak/gelak(eraikina_id=${eraikina.eraikinaID})}" th:text="${eraikina.izena}"></a>
-                    </h4>
-                    <h4 th:text="${eraikina.lokalizazioa}"></h4>
+                    <h4 th:text="'Temperatura minimoa: ' + ${gela.paramMin}"></h4> <a th:href="@{/userMenu/eraikinak/gela/parametroaAldatu}" class="btn btn-primary btn-lg">Aldatu Balio Minimoa</a>
+                    <h4 th:text="'Temperatura maximoa: ' +${gela.paramMax}"></h4> <a th:href="@{/userMenu/eraikinak/gela/parametroaAldatu}" class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Hezetasun minimoa: 20</h4> <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Hezetasun maximoa: 2</h4> <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Argi maila minimoa: 0</h4> <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Argi maila maximoa: 70</h4> <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Presio minimoa: 15</h4> <a  class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Presio maximoa: 22</h4> <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Aire kalitate minimoa: 50</h4> <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Aire kalitate maximoa: 100</h4> <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Soinu maila minimoa: 0</h4> <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                    <h4>Soinu maila maximoa: 75</h4> <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
                 </td>
             </tr>
         </tbody>

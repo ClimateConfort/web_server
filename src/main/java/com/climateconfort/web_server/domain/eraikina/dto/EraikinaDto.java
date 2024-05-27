@@ -1,5 +1,8 @@
 package com.climateconfort.web_server.domain.eraikina.dto;
 
+import com.climateconfort.web_server.domain.enpresa.model.Enpresa;
+import com.climateconfort.web_server.domain.gela.model.Gela;
+
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,4 +22,9 @@ public class EraikinaDto {
  
     @NotEmpty
 	private String lokalizazioa;
+
+	private Enpresa enpresa;
+
+	private Gela gela;
+
 }

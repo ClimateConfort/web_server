@@ -27,30 +27,6 @@
             <div class="card-header">
                 <h2 class="text-center">Erregistroa</h2>
             </div>
-
-            <!-- Enpresa
-            <div class="card-body">
-                <form method="post" th:action="@{/register/save}" th:object="${enpresa}">
-                    <div class="form-group mb-3">
-                        <label class="form-label">Enpresaren Izena</label>
-                        <input class="form-control"
-                               id="izena"
-                               name="izena"
-                               placeholder="Enter name"
-                               th:field="*{izena}"
-                               type="text"
-                        >
-                        <p th:errors="*{izena}" class="text-danger"
-                           th:if="${#fields.hasErrors('izena')}">
-                        </p>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <button class="btn btn-primary" type="submit">Erregistratu</button>
-                    </div>
-                </form>
-            </div>
-            --> 
             
             <!-- User -->
             <div class="card-body">
@@ -69,6 +45,7 @@
                            th:if="${#fields.hasErrors('email')}">
                         </p>
                     </div>
+
                     <div class="form-group mb-3">
                         <label class="form-label">Pasahitza</label>
                         <input class="form-control"
@@ -82,17 +59,59 @@
                            th:if="${#fields.hasErrors('password')}">
                         </p>
                     </div>
+
                     <div class="form-group mb-3">
-                        <label class="form-label">Enpresa Izena</label>
+                        <label class="form-label">Enpresaren Izena</label>
                         <input class="form-control"
-                               id="enpresa"
-                               name="enpresa"
-                               placeholder="Enter enpresa"
-                               th:field="*{enpresa}"
-                               type="enpresa"
+                               id="enpresaIzena"
+                               name="enpresaIzena"
+                               placeholder="Enpresaren izena"
+                               th:field="*{enpresaIzena}"
+                               type="enpresaIzena"
                         >
-                        <p th:errors="*{enpresa}" class="text-danger"
-                           th:if="${#fields.hasErrors('enpresa')}">
+                        <p th:errors="*{enpresaIzena}" class="text-danger"
+                           th:if="${#fields.hasErrors('enpresaIzena')}">
+                        </p>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Eraikinaren Izena</label>
+                        <input class="form-control"
+                               id="eraikinaIzena"
+                               name="eraikinaIzena"
+                               placeholder="Gelaren izena"
+                               th:field="*{eraikinaIzena}"
+                               type="eraikinaIzena"
+                        >
+                        <p th:errors="*{eraikinaIzena}" class="text-danger"
+                           th:if="${#fields.hasErrors('eraikinaIzena')}">
+                        </p>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Eraikinaren Lokalizazioa</label>
+                        <input class="form-control"
+                               id="eraikinaLokalizazioa"
+                               name="eraikinaLokalizazioa"
+                               placeholder=" "
+                               th:field="*{eraikinaLokalizazioa}"
+                               type="eraikinaLokalizazioa"
+                        >
+                        <p th:errors="*{eraikinaLokalizazioa}" class="text-danger"
+                           th:if="${#fields.hasErrors('eraikinaLokalizazioa')}">
+                        </p>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Gelaren Izena</label>
+                        <input class="form-control"
+                               id="gelaIzena"
+                               name="gelaIzena"
+                               placeholder="Gelaren izena"
+                               th:field="*{gelaIzena}"
+                               type="gelaIzena"
+                        >
+                        <p th:errors="*{gelaIzena}" class="text-danger"
+                           th:if="${#fields.hasErrors('gelaIzena')}">
                         </p>
                     </div>
 

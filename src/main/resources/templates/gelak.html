@@ -34,16 +34,15 @@
     <table class="table table-striped table-bordered table-hover" style="margin-top: 10px;">
         <thead class="table-dark">
             <tr>
-                <th>Eraikinak</th>
+                <th>Gelak</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="eraikina: ${eraikinaList}" style="background-color: whitesmoke;">
+            <tr th:each="gela: ${gelaList}" style="background-color: whitesmoke;">
                 <td>
                     <h4>
-                        <a aria-current="page" th:href="@{/administration/eraikinak/gelak(eraikina_id=${eraikina.eraikinaID})}" th:text="${eraikina.izena}"></a>
+                        <a aria-current="page" th:href="@{/userMenu/eraikinak/gela(gela_id=${gela.gelaID})}" th:text="${gela.izena}"></a>
                     </h4>
-                    <h4 th:text="${eraikina.lokalizazioa}"></h4>
                 </td>
             </tr>
         </tbody>

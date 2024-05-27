@@ -7,26 +7,28 @@
           rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/background.css">
 </head>
+<body>
 <body style="background-color: rgb(183, 219, 156)">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Registration System</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/register}">Registratu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Registration System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/register}">Registratu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 <div class="container" style="margin-top: 20px;">
     <div class="row">
         <h1>  </h1>
@@ -40,10 +42,11 @@
         <tbody>
             <tr th:each="enpresa: ${enpresaList}" style="background-color: whitesmoke;">
                 <td>
-                    <h3>
-                        <a aria-current="page" th:href="@{/administration/eraikinak(enpresa_id=${enpresa.enpresaID})}" th:text="${enpresa.izena}"></a>
-                    </h3>
-                    </td> 
+                <h3>
+                    <a aria-current="page" th:href="@{/administration/eraikinak(enpresa_id=${enpresa.enpresaID})}" th:text="${enpresa.izena}"></a>
+                    <a th:href="@{/administration/ezabatu(enpresa_id=${enpresa.enpresaID})}" class="btn btn-primary btn-lg">Ezabatu</a>
+                </h3>
+                </td> 
             </tr>
         </tbody>
     </table>

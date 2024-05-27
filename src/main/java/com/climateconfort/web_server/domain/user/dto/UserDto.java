@@ -27,6 +27,9 @@ public class UserDto {
 	//@NotEmpty
 	private RoleType roleType;
 
-	private String enpresa;
-    
+	/* Bariable hauek sorkuntza mocketuarentzat */
+	private String enpresaIzena;
+	private String eraikinaIzena;
+	private String eraikinaLokalizazioa;
+	private String gelaIzena;
 }

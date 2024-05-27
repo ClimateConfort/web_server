@@ -31,8 +31,7 @@ public class UserServiceImpl implements UserService
 	@Override
 	public void saveUser(UserDto userDto) {
 		User user = new User();
-		// user.setIzena(userDto.getName());
-		// user.setAbizena(userDto.getSurname());
+
 		user.setEmail(userDto.getEmail());
 		user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 		user.setRole(roleRepository.findByType(userDto.getRoleType()).orElseGet(() -> {
@@ -78,6 +77,11 @@ public class UserServiceImpl implements UserService
 	@Override
 	public Optional<User> findUserByEmail(String email) {
 		return userRepository.findByEmail(email);
+	}
+
+	@Override
+	public void deleteUser(Long id) {
+		userRepository.deleteById(id);
 	}
 
 }
