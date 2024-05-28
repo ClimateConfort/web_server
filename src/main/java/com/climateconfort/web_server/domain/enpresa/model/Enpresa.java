@@ -5,6 +5,7 @@ import java.util.List;
 import com.climateconfort.web_server.domain.eraikina.model.Eraikina;
 import com.climateconfort.web_server.domain.user.model.User;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -37,10 +38,10 @@ public class Enpresa {
 	@Column(nullable = false)
 	private String izena;
 
-	@OneToMany(mappedBy = "enpresa", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "enpresa", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Eraikina> eraikinak;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private User user;
 
 }
