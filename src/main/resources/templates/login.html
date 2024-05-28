@@ -47,10 +47,10 @@
 				<p class="text-white">Monitorizatu zure ingurunea</p>
 			</div>
 			<div th:if="${param.error}">
-				<div class="alert alert-danger">Invalid Email and Password.</div>
+				<div class="alert alert-danger">Emaila edo pasahitza ez dira zuzenak.</div>
 			</div>
 			<div th:if="${param.logout}">
-				<div class="alert alert-success">You have been logged out.</div>
+				<div class="alert alert-success">Saioa itxita!</div>
 			</div>
 			<form method="post" th:action="@{/login}">
 				<div>
