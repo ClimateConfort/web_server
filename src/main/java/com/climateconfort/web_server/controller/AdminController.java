@@ -37,7 +37,6 @@ public class AdminController {
     @GetMapping("/administration/ezabatu")
     public String adminEzabatuEnpresa(Model model, Principal principal, @RequestParam("enpresa_id") Long enpresaID)
     {
-		// TODO: delete user, acaba funcion
 		userService.deleteUser(enpresaService.findEnpresaByID(enpresaID).getUser().getUserID());
         enpresaService.deleteEnpresa(enpresaID);
         model.addAttribute("enpresaList", enpresaService.findAllEnpresas());
