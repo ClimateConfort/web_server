@@ -1,0 +1,20 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #b2fb93;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom right, rgb(208, 255, 189), rgb(173, 248, 197));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom right, rgba(208, 255, 189, 1), rgba(173, 248, 197, 1))
+}
+
+.btn-verde {
+    background-color: rgb(62, 195, 104);
+    border-color: rgb(62, 195, 104);
+}
+
+.btn-verde:hover {
+    background-color: rgb(176, 251, 147);
+    border-color: rgb(176, 251, 147);
+}
