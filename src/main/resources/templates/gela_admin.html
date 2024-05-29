@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="eu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gela</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/gela.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/administration}">Climate Confort</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Saioa itxi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="gradient-custom">
+        <div class="text-center p-4">
+            <h1 class="fw-bold" th:text="${gela.izena}"></h1>
+        </div>
+
+        <section class="vh-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card shadow-2-strong card-registration">
+                            <div class="card-body p-4 p-md-5">
+                                <h3 class="mb-4 pb-2 pb-md-0 mb-md-3 text-dark">Aldagaiak: </h3>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4 th:text="'Temperatura minimoa: ' + ${gela.paramMin}"></h4>
+                                            <a th:href="@{/userMenu/eraikinak/gela/parametroaAldatu}"
+                                                class="btn btn-primary btn-lg">Aldatu Balio Minimoa</a>
+                                        </div>
+                                        <div class="col">
+                                            <h4 th:text="'Temperatura maximoa: ' +${gela.paramMax}"></h4>
+                                            <a th:href="@{/userMenu/eraikinak/gela/parametroaAldatu}"
+                                                class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4>Hezetasun minimoa: 20</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                        <div class="col">
+                                            <h4>Hezetasun maximoa: 2</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4>Argi maila minimoa: 0</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                        <div class="col">
+                                            <h4>Argi maila maximoa: 70</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4>Presio minimoa: 15</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                        <div class="col">
+                                            <h4>Presio maximoa: 22</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4>Aire kalitate minimoa: 50</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                        <div class="col">
+                                            <h4>Aire kalitate maximoa: 100</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4>Soinu maila minimoa: 0</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                        <div class="col">
+                                            <h4>Soinu maila maximoa: 75</h4>
+                                            <a class="btn btn-primary btn-lg">Aldatu Balio MAximoa</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

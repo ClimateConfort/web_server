@@ -13,6 +13,7 @@ import com.climateconfort.web_server.domain.enpresa.service.EnpresaService;
 import com.climateconfort.web_server.domain.eraikina.dto.EraikinaDto;
 import com.climateconfort.web_server.domain.eraikina.service.EraikinaService;
 import com.climateconfort.web_server.domain.gela.dto.GelaDto;
+import com.climateconfort.web_server.domain.gela.service.GelaService;
 import com.climateconfort.web_server.domain.user.service.UserService;
 
 @Controller
@@ -26,6 +27,9 @@ public class AdminController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private GelaService gelaService;
     
 	@GetMapping("/administration")
 	public String adminMenu(Model model, Principal principal) 
@@ -56,7 +60,14 @@ public class AdminController {
 	{
         List<GelaDto> list = eraikinaService.findGelakByEraikinaID(eraikinaID).get();
 		model.addAttribute("gelaList", list);
-		return "gelak";
+		return "gelak_admin";
+	}
+
+	@GetMapping("/administration/eraikinak/gela")
+    public String userIkusiGelaBat(Model model, Principal principal, @RequestParam("gela_id") Long gelaID) 
+	{
+        model.addAttribute("gela", gelaService.fingGelaByGelaID(gelaID));
+		return "gela_admin";
 	}
 
 }
