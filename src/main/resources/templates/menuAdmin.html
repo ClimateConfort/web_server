@@ -65,9 +65,9 @@
                                             <div>
                                                 <a aria-current="page"
                                                     th:href="@{/administration/eraikinak(enpresa_id=${enpresa.enpresaID})}"
-                                                    class="btn btn-verde me-2">Kudeatu</a>
+                                                    class="btn btn-verde me-2" onclick="_paq.push(['trackEvent', 'Enpresak', 'Enpresa kudeatzeko admin botoian klik', 'ADMIN enpresa kudeatu botoia']);">Kudeatu</a>
                                                 <a th:href="@{/administration/ezabatu(enpresa_id=${enpresa.enpresaID})}"
-                                                    class="btn btn-danger">Ezabatu</a>
+                                                    class="btn btn-danger" onclick="_paq.push(['trackEvent', 'Enpresak', 'Enpresa ezabatzeko admin botoian klik', 'ADMIN enpresa ezabatu botoia']);">Ezabatu</a>
                                             </div>
                                         </div>
                                     </div>

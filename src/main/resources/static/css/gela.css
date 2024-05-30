@@ -1,3 +1,7 @@
+body {
+    overflow-y: hidden;
+}
+
 .gradient-custom {
     /* fallback for old browsers */
     background: #b2fb93;

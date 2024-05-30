@@ -48,7 +48,6 @@
                 </div>
                 <div class="card-body">
                     <form method="post" th:action="@{/register/save}" th:object="${user}">
-
                         <div class="form-group mb-3">
                             <label class="form-label">Email</label>
                             <input class="form-control" id="email" name="email" placeholder="Enter email address"
@@ -74,7 +73,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <button class="btn btn-primary" type="submit">Erregistratu</button>
+                            <button onclick="_paq.push(['trackEvent', 'Erregistroa', 'Erregistro botoian klik', 'Erregistro botoia']);" class="btn btn-primary" type="submit">Erregistratu</button>
                         </div>
                     </form>
                 </div>

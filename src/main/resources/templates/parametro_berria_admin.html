@@ -27,7 +27,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/userMenu}">Climate Confort</a>
+            <a class="navbar-brand" th:href="@{/administration}">Climate Confort</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -53,7 +53,7 @@
                                 <div class="alert alert-info">Zuzen erregistratu da.</div>
                             </div>
                             <div class="card-body">
-                                <form method="post" th:action="@{/userMenu/eraikinak/gela/parametroaAldatu}">
+                                <form method="post" th:action="@{/administration/eraikinak/gela/parametroaAldatu}">
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <label class="form-label">Balio Berria</label>
@@ -66,7 +66,7 @@
                                         </div>
                                         <div class="mt-4 pt-2">
                                             <input data-mdb-ripple-init class="btn btn-primary btn-lg" type="submit"
-                                                value="Aldatu" onclick="_paq.push(['trackEvent', 'Parametroak', 'Parametroa aldatzeko user botoian klik', 'USER parametroa aldatu botoia']);"/>
+                                                value="Aldatu" onclick="_paq.push(['trackEvent', 'Parametroak', 'Parametroa aldatzeko admin botoian klik', 'ADMIN parametroa aldatu botoia']);"/>
                                         </div>
                                     </div>
                                 </form>

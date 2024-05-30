@@ -60,7 +60,7 @@
                                                 <h5 class="card-title" th:text="${gela.izena}"></h5>
                                                 <div>
                                                     <a aria-current="page" th:href="@{/administration/eraikinak/gela(gela_id=${gela.gelaID})}"
-                                                        class="btn btn-verde me-2">Kudeatu</a>
+                                                        class="btn btn-verde me-2" onclick="_paq.push(['trackEvent', 'Gelak', 'Gelak kudeatzeko admin botoian klik', 'ADMIN gela kudeatu botoia']);">Kudeatu</a>
                                                 </div>
                                             </div>
                                         </div>
