@@ -5,6 +5,7 @@ import java.util.List;
 import com.climateconfort.web_server.domain.enpresa.model.Enpresa;
 import com.climateconfort.web_server.domain.gela.model.Gela;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -43,7 +44,7 @@ public class Eraikina {
     @ManyToOne
     private Enpresa enpresa;
 
-	@OneToMany(mappedBy = "eraikina", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "eraikina", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Gela> gelak;
 
 }
