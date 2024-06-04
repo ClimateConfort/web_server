@@ -48,15 +48,15 @@
                 <div class="col-12 col-lg-9 col-xl-7">
                     <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                         <div class="card-body p-4 p-md-5">
-                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-3">Parametroa aldatu</h3>
+                            <h1 class="mb-4 pb-2 pb-md-0 mb-md-3">Parametroa aldatu</h1>
                             <div th:if="${param.zuzen}">
                                 <div class="alert alert-info">Zuzen erregistratu da.</div>
                             </div>
                             <div class="card-body">
                                 <form method="post" th:action="@{/administration/eraikinak/gela/parametroaAldatu}">
+                                    <label class="form-label" for="parametro">Balio Berria</label>
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
-                                            <label class="form-label">Balio Berria</label>
                                             <input class="form-control" id="parametro" name="parametro"
                                                 placeholder="Sartu parametro berria" type="parametro"
                                                 th:object="${parametro}">
