@@ -4,14 +4,12 @@ import com.climateconfort.web_server.domain.enpresa.model.Enpresa;
 import com.climateconfort.web_server.domain.gela.model.Gela;
 
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class EraikinaDto {
 
