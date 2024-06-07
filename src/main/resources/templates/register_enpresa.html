@@ -48,7 +48,6 @@
             </div>
         </div>
     </nav>
-    <br>
     <section class="vh-100 gradient-custom d-flex align-items-center">
         <div class="container">
             <div class="row justify-content-center">
@@ -65,7 +64,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="email" name="email"
-                                                placeholder="Enter email address" th:field="*{email}" type="email">
+                                                placeholder="Idatzi emaila" th:field="*{email}" type="email">
                                             <p th:errors="*{email}" class="text-danger"
                                                 th:if="${#fields.hasErrors('email')}">
                                             </p>
@@ -75,7 +74,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="password" name="password"
-                                                placeholder="Enter password" th:field="*{password}" type="password">
+                                                placeholder="Idatzi pasahitza" th:field="*{password}" type="password">
                                             <p th:errors="*{password}" class="text-danger"
                                                 th:if="${#fields.hasErrors('password')}">
                                             </p>
@@ -85,7 +84,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="enpresaIzena" name="enpresaIzena"
-                                                placeholder="Enpresaren izena" th:field="*{enpresaIzena}"
+                                                placeholder="Idatzi enpresaren izena" th:field="*{enpresaIzena}"
                                                 type="enpresaIzena">
                                             <p th:errors="*{enpresaIzena}" class="text-danger"
                                                 th:if="${#fields.hasErrors('enpresaIzena')}">
@@ -96,7 +95,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="eraikinaIzena" name="eraikinaIzena"
-                                                placeholder="Gelaren izena" th:field="*{eraikinaIzena}"
+                                                placeholder="Idatzi gelaren izena" th:field="*{eraikinaIzena}"
                                                 type="eraikinaIzena">
                                             <p th:errors="*{eraikinaIzena}" class="text-danger"
                                                 th:if="${#fields.hasErrors('eraikinaIzena')}">
@@ -107,7 +106,7 @@
                                     <div class="ccol-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="eraikinaLokalizazioa"
-                                                name="eraikinaLokalizazioa" placeholder="Eraikinaren lokalizazioa"
+                                                name="eraikinaLokalizazioa" placeholder="Idatzi eraikinaren lokalizazioa"
                                                 th:field="*{eraikinaLokalizazioa}" type="eraikinaLokalizazioa">
                                             <p th:errors="*{eraikinaLokalizazioa}" class="text-danger"
                                                 th:if="${#fields.hasErrors('eraikinaLokalizazioa')}">
@@ -118,7 +117,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="gelaIzena" name="gelaIzena"
-                                                placeholder="Gelaren izena" th:field="*{gelaIzena}" type="gelaIzena">
+                                                placeholder="Idatzi gelaren izena" th:field="*{gelaIzena}" type="gelaIzena">
                                             <p th:errors="*{gelaIzena}" class="text-danger"
                                                 th:if="${#fields.hasErrors('gelaIzena')}">
                                             </p>
