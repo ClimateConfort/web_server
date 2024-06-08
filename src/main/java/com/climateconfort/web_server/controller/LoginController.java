@@ -68,6 +68,9 @@ public class LoginController {
 		gela.setIzena(user.getGelaIzena());
 
 		model.addAttribute("enpresaList", enpresaService.findAllEnpresas());
+		if (!result.hasErrors()) {
+			model.addAttribute("zuzen", true);
+		}
 		return "menuAdmin";
 	}
 
