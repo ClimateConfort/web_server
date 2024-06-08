@@ -8,20 +8,20 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/background.css">
     <!-- Matomo -->
-	<script>
-		var _paq = window._paq = window._paq || [];
-		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-		_paq.push(['trackPageView']);
-		_paq.push(['enableLinkTracking']);
-		(function() {
-		var u="//35.207.48.81/";
-		_paq.push(['setTrackerUrl', u+'matomo.php']);
-		_paq.push(['setSiteId', '1']);
-		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-		})();
-	</script>
-	<!-- End Matomo Code -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "//35.207.48.81/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
 </head>
 
 <body>
@@ -70,9 +70,12 @@
                                             <div>
                                                 <a aria-current="page"
                                                     th:href="@{/administration/eraikinak(enpresa_id=${enpresa.enpresaID})}"
-                                                    class="btn btn-verde me-2" onclick="_paq.push(['trackEvent', 'Enpresak', 'Enpresa kudeatzeko admin botoian klik', 'ADMIN enpresa kudeatu botoia']);">Kudeatu</a>
+                                                    class="btn btn-verde me-2"
+                                                    onclick="_paq.push(['trackEvent', 'Enpresak', 'Enpresa kudeatzeko admin botoian klik', 'ADMIN enpresa kudeatu botoia']);">Kudeatu</a>
                                                 <a th:href="@{/administration/ezabatu(enpresa_id=${enpresa.enpresaID})}"
-                                                    class="btn btn-danger" onclick="_paq.push(['trackEvent', 'Enpresak', 'Enpresa ezabatzeko admin botoian klik', 'ADMIN enpresa ezabatu botoia']);">Ezabatu</a>
+                                                    class="btn btn-danger"
+                                                    onclick="return confirm('Ziur zaude enpresa hau ezabatu nahi duzula?'); _paq.push(['trackEvent', 'Enpresak', 'Enpresa ezabatzeko admin botoian klik', 'ADMIN enpresa ezabatu botoia']);">Ezabatu</a>
+
                                             </div>
                                         </div>
                                     </div>
