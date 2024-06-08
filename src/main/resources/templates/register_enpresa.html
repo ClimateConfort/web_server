@@ -15,7 +15,7 @@
 		_paq.push(['trackPageView']);
 		_paq.push(['enableLinkTracking']);
 		(function() {
-		var u="//http://34.73.1.92//";
+		var u="//35.207.48.81/";
 		_paq.push(['setTrackerUrl', u+'matomo.php']);
 		_paq.push(['setSiteId', '1']);
 		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -26,15 +26,21 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/administration}">Climate Confort</a>
+            <a class="navbar-brand" th:href="@{/administration}">
+                <img src="/images/logo.png" alt="ClimateConfort logoa" style="height: 40px; margin-right: 10px;">
+                Climate Confort
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" th:href="@{/logout}">Saioa itxi</a>
                     </li>
@@ -42,7 +48,6 @@
             </div>
         </div>
     </nav>
-    <br>
     <section class="vh-100 gradient-custom d-flex align-items-center">
         <div class="container">
             <div class="row justify-content-center">
@@ -59,7 +64,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="email" name="email"
-                                                placeholder="Enter email address" th:field="*{email}" type="email">
+                                                placeholder="Idatzi emaila" th:field="*{email}" type="email">
                                             <p th:errors="*{email}" class="text-danger"
                                                 th:if="${#fields.hasErrors('email')}">
                                             </p>
@@ -69,7 +74,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="password" name="password"
-                                                placeholder="Enter password" th:field="*{password}" type="password">
+                                                placeholder="Idatzi pasahitza" th:field="*{password}" type="password">
                                             <p th:errors="*{password}" class="text-danger"
                                                 th:if="${#fields.hasErrors('password')}">
                                             </p>
@@ -79,7 +84,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="enpresaIzena" name="enpresaIzena"
-                                                placeholder="Enpresaren izena" th:field="*{enpresaIzena}"
+                                                placeholder="Idatzi enpresaren izena" th:field="*{enpresaIzena}"
                                                 type="enpresaIzena">
                                             <p th:errors="*{enpresaIzena}" class="text-danger"
                                                 th:if="${#fields.hasErrors('enpresaIzena')}">
@@ -90,7 +95,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="eraikinaIzena" name="eraikinaIzena"
-                                                placeholder="Gelaren izena" th:field="*{eraikinaIzena}"
+                                                placeholder="Idatzi gelaren izena" th:field="*{eraikinaIzena}"
                                                 type="eraikinaIzena">
                                             <p th:errors="*{eraikinaIzena}" class="text-danger"
                                                 th:if="${#fields.hasErrors('eraikinaIzena')}">
@@ -101,7 +106,7 @@
                                     <div class="ccol-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="eraikinaLokalizazioa"
-                                                name="eraikinaLokalizazioa" placeholder="Eraikinaren lokalizazioa"
+                                                name="eraikinaLokalizazioa" placeholder="Idatzi eraikinaren lokalizazioa"
                                                 th:field="*{eraikinaLokalizazioa}" type="eraikinaLokalizazioa">
                                             <p th:errors="*{eraikinaLokalizazioa}" class="text-danger"
                                                 th:if="${#fields.hasErrors('eraikinaLokalizazioa')}">
@@ -112,7 +117,7 @@
                                     <div class="col-12 mb-4">
                                         <div data-mdb-input-init class="form-outline">
                                             <input class="form-control" id="gelaIzena" name="gelaIzena"
-                                                placeholder="Gelaren izena" th:field="*{gelaIzena}" type="gelaIzena">
+                                                placeholder="Idatzi gelaren izena" th:field="*{gelaIzena}" type="gelaIzena">
                                             <p th:errors="*{gelaIzena}" class="text-danger"
                                                 th:if="${#fields.hasErrors('gelaIzena')}">
                                             </p>

@@ -14,7 +14,7 @@
 		_paq.push(['trackPageView']);
 		_paq.push(['enableLinkTracking']);
 		(function() {
-		var u="//http://34.73.1.92//";
+		var u="//35.207.48.81/";
 		_paq.push(['setTrackerUrl', u+'matomo.php']);
 		_paq.push(['setSiteId', '1']);
 		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -25,13 +25,26 @@
 </head>
 
 <body style="background-color: rgb(205, 134, 3)">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/administration}">Registration System</a>
+            <a class="navbar-brand" th:href="@{/administration}">
+                <img src="/images/logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+                Climate Confort
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Saioa itxi</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
     <br>
@@ -50,14 +63,14 @@
                     <form method="post" th:action="@{/register/save}" th:object="${user}">
                         <div class="form-group mb-3">
                             <label class="form-label">Email</label>
-                            <input class="form-control" id="email" name="email" placeholder="Enter email address"
+                            <input class="form-control" id="email" name="email" placeholder="Idatzi emaila"
                                 th:field="*{email}" type="email">
                             <p th:errors="*{email}" class="text-danger" th:if="${#fields.hasErrors('email')}">
                             </p>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Pasahitza</label>
-                            <input class="form-control" id="password" name="password" placeholder="Enter password"
+                            <input class="form-control" id="password" name="password" placeholder="Idatzi pasahitza"
                                 th:field="*{password}" type="password">
                             <p th:errors="*{password}" class="text-danger" th:if="${#fields.hasErrors('password')}">
                             </p>
