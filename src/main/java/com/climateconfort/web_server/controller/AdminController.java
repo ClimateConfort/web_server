@@ -2,6 +2,7 @@ package com.climateconfort.web_server.controller;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,20 +52,24 @@ public class AdminController {
 
 	@GetMapping("/administration/eraikinak")
 	public String adminIkusiEraikinak(Model model, Principal principal, @RequestParam("enpresa_id") Long enpresaID) {
-		List<EraikinaDto> list = enpresaService.findEraikinakByEnpresaID(enpresaID).get();
-		model.addAttribute("eraikinaList", list);
+		Optional<List<EraikinaDto>> list = enpresaService.findEraikinakByEnpresaID(enpresaID);
+		if (!list.isEmpty()) {
+			model.addAttribute("eraikinaList", list);
+		}
 		return "eraikinak";
 	}
 
 	@GetMapping("/administration/eraikinak/gelak")
-	public String userIkusiGelak(Model model, Principal principal, @RequestParam("eraikina_id") Long eraikinaID) {
-		List<GelaDto> list = eraikinaService.findGelakByEraikinaID(eraikinaID).get();
-		model.addAttribute("gelaList", list);
+	public String adminIkusiGelak(Model model, Principal principal, @RequestParam("eraikina_id") Long eraikinaID) {
+		Optional<List<GelaDto>> list = eraikinaService.findGelakByEraikinaID(eraikinaID);
+		if (!list.isEmpty()) {
+			model.addAttribute("gelaList", list);
+		}
 		return "gelak_admin";
 	}
 
 	@GetMapping("/administration/eraikinak/gela")
-	public String userIkusiGelaBat(Model model, Principal principal, @RequestParam("gela_id") Long gelaID) {
+	public String adminIkusiGelaBat(Model model, Principal principal, @RequestParam("gela_id") Long gelaID) {
 		model.addAttribute("gela", gelaService.fingGelaByGelaID(gelaID));
 		return "gela_admin";
 	}

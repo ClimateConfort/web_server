@@ -1,43 +1,111 @@
 package com.climateconfort.web_server;
 
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
+import java.util.Optional;
 
+import org.springframework.ui.ExtendedModelMap;
+import org.springframework.ui.Model;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.web.servlet.MockMvc;
-
 import com.climateconfort.web_server.controller.AdminController;
-import com.climateconfort.web_server.domain.enpresa.dto.EnpresaDto;
+import com.climateconfort.web_server.domain.enpresa.model.Enpresa;
 import com.climateconfort.web_server.domain.enpresa.service.EnpresaService;
+import com.climateconfort.web_server.domain.eraikina.dto.EraikinaDto;
+import com.climateconfort.web_server.domain.eraikina.model.Eraikina;
+import com.climateconfort.web_server.domain.eraikina.service.EraikinaService;
+import com.climateconfort.web_server.domain.gela.dto.GelaDto;
+import com.climateconfort.web_server.domain.gela.service.GelaService;
+import com.climateconfort.web_server.domain.user.service.UserService;
 
-// @WebMvcTest(AdminController.class)
-// class AdminControllerTest {
+class AdminControllerTest {
 
-//     @Autowired
-//     private MockMvc mockMvc;
+    @InjectMocks
+    AdminController adminController;
 
-//     @MockBean
-//     private EnpresaService enpresaService;
+    @Mock
+    UserService userService;
 
-//     @Test
-//     @WithMockUser(username = "admin", roles = {"ADMIN"})
-//     void testAdminMenu() throws Exception {
-//         List<EnpresaDto> enpresaList = new ArrayList<>();
-//         when(enpresaService.findAllEnpresas()).thenReturn(enpresaList);
+    @Mock
+    EnpresaService enpresaService;
 
-//         mockMvc.perform(get("/administration"))
-//                .andExpect(status().isOk())
-//                .andExpect(view().name("menuAdmin"))
-//                .andExpect(model().attributeExists("enpresaList"))
-//                .andExpect(model().attribute("enpresaList", enpresaList));
-//     }
-    
-// }
+    @Mock
+    EraikinaService eraikinaService;
+
+    @Mock
+    GelaService gelaService;
+
+    Model model;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+        model = new ExtendedModelMap();
+    }
+
+    @Test
+    @WithMockUser(username = "test@example.com", roles = {"ADMIN"})
+    void testAdminIkusiEraikinak() {
+        Enpresa enpresa = new Enpresa();
+        enpresa.setEnpresaID(1L);
+        EraikinaDto eraikinaFake = new EraikinaDto();
+        eraikinaFake.setEnpresa(enpresa);
+        eraikinaFake.setEraikinaID(1L);
+        eraikinaFake.setIzena("izena");
+        eraikinaFake.setLokalizazioa("lokalizazio");
+
+        when(enpresaService.findEraikinakByEnpresaID(anyLong())).thenReturn(Optional.of(Collections.singletonList(eraikinaFake)));
+        String result = adminController.adminIkusiEraikinak(model, null, 1L);
+        assertEquals("eraikinak", result);
+    }
+
+    @Test
+    @WithMockUser(username = "test@example.com", roles = {"ADMIN"})
+    void testAdminIkusiGelak() {
+        Eraikina eraikina = new Eraikina();
+        eraikina.setEraikinaID(1L);
+        GelaDto gelaFake = new GelaDto();
+        gelaFake.setEraikina(eraikina);
+
+        when(eraikinaService.findGelakByEraikinaID(anyLong())).thenReturn(Optional.of(Collections.singletonList(gelaFake)));
+        String result = adminController.adminIkusiGelak(model, null, 1L);
+        assertEquals("gelak_admin", result);
+    }
+
+    @Test
+    @WithMockUser(username = "test@example.com", roles = {"ADMIN"})
+    void testAdminIkusiGelaBat() {
+        GelaDto gelaFake = new GelaDto();
+        gelaFake.setGelaID(1L);
+
+        when(gelaService.fingGelaByGelaID(anyLong())).thenReturn(gelaFake);
+        String result = adminController.adminIkusiGelaBat(model, null, 1L);
+        assertEquals("gela_admin", result);
+    }
+
+    @Test
+    @WithMockUser(username = "test@example.com", roles = {"ADMIN"})
+    void testAdministrationParametroaAldatuRequest() {
+        String result = adminController.administrationParametroaAldatuRequest(model, null);
+        assertEquals("parametro_berria_admin", result);
+    }
+
+    @Test
+    @WithMockUser(username = "test@example.com", roles = {"ADMIN"})
+    void testAdministrationParametroaAldatut() {
+        GelaDto gelaFake = new GelaDto();
+        gelaFake.setGelaID(1L);
+
+        when(gelaService.fingGelaByGelaID(anyLong())).thenReturn(gelaFake);
+        String result = adminController.administrationParametroaAldatu(1, model, null);
+        assertEquals("gela_admin", result);
+    }
+
+}
