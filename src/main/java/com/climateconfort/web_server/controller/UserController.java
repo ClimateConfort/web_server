@@ -20,6 +20,7 @@ import com.climateconfort.web_server.domain.eraikina.dto.EraikinaDto;
 import com.climateconfort.web_server.domain.eraikina.service.EraikinaService;
 import com.climateconfort.web_server.domain.gela.dto.GelaDto;
 import com.climateconfort.web_server.domain.gela.service.GelaService;
+import com.climateconfort.web_server.domain.user.dto.UserDto;
 
 import jakarta.validation.Valid;
 
@@ -39,6 +40,15 @@ public class UserController {
     public String userMenu(Model model, Principal principal) {
         return "menu_user";
     }
+
+    @GetMapping("/laguntza")
+	public String showLaguntza(Model model) 
+	{
+		UserDto user = new UserDto();
+		model.addAttribute("user", user);
+		return "laguntza";
+	}
+
 
     @GetMapping("/userMenu/eraikinak")
     public String userIkusiEraikinak(Model model, Principal principal,

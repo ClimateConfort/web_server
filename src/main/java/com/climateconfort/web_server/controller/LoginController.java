@@ -66,7 +66,7 @@ public class LoginController {
 		eraikinaService.saveEraikina(eraikina);
 		
 		gela.setIzena(user.getGelaIzena());
- 
+
 		model.addAttribute("enpresaList", enpresaService.findAllEnpresas());
 		return "menuAdmin";
 	}
