@@ -54,7 +54,7 @@ public class AdminController {
 	public String adminIkusiEraikinak(Model model, Principal principal, @RequestParam("enpresa_id") Long enpresaID) {
 		Optional<List<EraikinaDto>> list = enpresaService.findEraikinakByEnpresaID(enpresaID);
 		if (!list.isEmpty()) {
-			model.addAttribute("eraikinaList", list);
+			model.addAttribute("eraikinaList", list.get());
 		}
 		return "eraikinak";
 	}
@@ -63,7 +63,7 @@ public class AdminController {
 	public String adminIkusiGelak(Model model, Principal principal, @RequestParam("eraikina_id") Long eraikinaID) {
 		Optional<List<GelaDto>> list = eraikinaService.findGelakByEraikinaID(eraikinaID);
 		if (!list.isEmpty()) {
-			model.addAttribute("gelaList", list);
+			model.addAttribute("gelaList", list.get());
 		}
 		return "gelak_admin";
 	}
