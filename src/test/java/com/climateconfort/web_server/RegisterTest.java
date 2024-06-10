@@ -16,6 +16,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import com.climateconfort.web_server.controller.LoginController;
 import com.climateconfort.web_server.domain.enpresa.dto.EnpresaDto;
@@ -34,6 +35,8 @@ class RegisterTest {
     EnpresaService mockedEnpresaService;
     @Mock
     EraikinaService mockedEraikinaService;
+    @Mock
+    BindingResult mockedResult;
 
     @InjectMocks
     private LoginController loginController;
@@ -59,10 +62,11 @@ class RegisterTest {
         doNothing().when(mockedUserService).saveUser(any());
         doNothing().when(mockedEnpresaService).saveEnpresa(any());
         doNothing().when(mockedEraikinaService).saveEraikina(any());
+        when(mockedResult.hasErrors()).thenReturn(false);
         when(mockedEnpresaService.findEnpresaByIzena(anyString())).thenReturn(enpresa);
         when(mockedEnpresaService.findAllEnpresas()).thenReturn(Collections.singletonList(enpresaDto));
         when(mockedUserService.findUserByEmail(anyString())).thenReturn(Optional.of(user));
-        String result = loginController.enpresaRegistration(userDto, null, model, null);
+        String result = loginController.enpresaRegistration(userDto, mockedResult, model, null);
         assertEquals("menuAdmin", result);
     }
 }
