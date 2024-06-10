@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="eu" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Erregistratu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/css/register.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="/css/eraikinak.css">
+    <!-- Matomo -->
+	<script>
+		var _paq = window._paq = window._paq || [];
+		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function() {
+		var u="//35.207.48.81/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '1']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+		})();
+	</script>
+	<!-- End Matomo Code -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/administration}">
+                <img src="/images/logo.png" alt="ClimateConfort logoa" style="height: 40px; margin-right: 10px;">
+                Climate Confort
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Saioa itxi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="vh-100 gradient-custom d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9 col-xl-7">
+                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                        <div class="card-body p-4 p-md-5">
+                            <h1 class="mb-4 pb-2 pb-md-0 mb-md-3">Erregistratu</h1>
+                            <div th:if="${param.zuzen}">
+                                <div class="alert alert-info">Erregistroa zuzen gauzatu da!</div>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" th:action="@{/register/save}" th:object="${user}">
+                                    <label class="form-label" for="email">Emaila</label>
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <input class="form-control" id="email" name="email"
+                                                placeholder="Idatzi emaila" th:field="*{email}" type="email">
+                                            <p th:errors="*{email}" class="text-danger"
+                                                th:if="${#fields.hasErrors('email')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="form-label" for="password">Pasahitza</label>
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <input class="form-control" id="password" name="password"
+                                                placeholder="Idatzi pasahitza" th:field="*{password}" type="password">
+                                            <p th:errors="*{password}" class="text-danger"
+                                                th:if="${#fields.hasErrors('password')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="form-label" for="enpresaIzena">Enpresaren izena</label>
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <input class="form-control" id="enpresaIzena" name="enpresaIzena"
+                                                placeholder="Idatzi enpresaren izena" th:field="*{enpresaIzena}"
+                                                type="enpresaIzena">
+                                            <p th:errors="*{enpresaIzena}" class="text-danger"
+                                                th:if="${#fields.hasErrors('enpresaIzena')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="form-label" for="eraikinaIzena">Eraikinaren izena</label>
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <input class="form-control" id="eraikinaIzena" name="eraikinaIzena"
+                                                placeholder="Idatzi gelaren izena" th:field="*{eraikinaIzena}"
+                                                type="eraikinaIzena">
+                                            <p th:errors="*{eraikinaIzena}" class="text-danger"
+                                                th:if="${#fields.hasErrors('eraikinaIzena')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="form-label" for="eraikinaLokalizazioa">Eraikinaren lokalizazioa</label>
+                                    <div class="ccol-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <input class="form-control" id="eraikinaLokalizazioa"
+                                                name="eraikinaLokalizazioa" placeholder="Idatzi eraikinaren lokalizazioa"
+                                                th:field="*{eraikinaLokalizazioa}" type="eraikinaLokalizazioa">
+                                            <p th:errors="*{eraikinaLokalizazioa}" class="text-danger"
+                                                th:if="${#fields.hasErrors('eraikinaLokalizazioa')}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="form-label" for="gelaIzena">Gelaren izena</label>
+                                    <div class="col-12 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <input class="form-control" id="gelaIzena" name="gelaIzena"
+                                                placeholder="Idatzi gelaren izena" th:field="*{gelaIzena}" type="gelaIzena">
+                                            <p th:errors="*{gelaIzena}" class="text-danger"
+                                                th:if="${#fields.hasErrors('gelaIzena')}">
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 pt-2">
+                                        <input data-mdb-ripple-init class="btn btn-verde btn-lg" onclick="_paq.push(['trackEvent', 'Erregistroa', 'Erregistro botoian klik', 'Erregistro botoia']);" type="submit" value="Erregistratu" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
